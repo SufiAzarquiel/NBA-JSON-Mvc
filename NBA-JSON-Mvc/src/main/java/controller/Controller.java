@@ -19,7 +19,7 @@ import model.Team;
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private Team[] ;
+	private Team[] teams;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -40,24 +40,14 @@ public class Controller extends HttpServlet {
 
 		switch (op) {
 		case "inicio": {
-			WebHandler webHandler = new WebHandler("https://pokeapi.co/api/v2/pokemon-species?limit=1010");
-			resultAll = webHandler.getResult();
-			setFotos();
-			request.setAttribute("pokemons", resultAll.getPokemons());
+			WebHandler webHandler = new WebHandler("http://www.ies-azarquiel.es/paco/apinba/teams");
+			teams = webHandler.getTeams();
+			request.setAttribute("teams", teams);
 			request.getRequestDispatcher("page.jsp").forward(request, response);
 			break;
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + op);
-		}
-	}
-
-	private void setFotos() {
-		for (Pokemon pokemon : resultAll.getPokemons()) {
-			String foto = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
-			String[] trozosfoto = pokemon.getUrl().split("/");
-			foto += trozosfoto[trozosfoto.length - 1] + ".png";
-			pokemon.setFoto(foto);
 		}
 	}
 
