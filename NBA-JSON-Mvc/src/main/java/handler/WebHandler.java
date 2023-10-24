@@ -5,22 +5,22 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.commons.io.IOUtils;
 
 import com.google.gson.Gson;
 
-import model.ResultAll;
+import model.Team;
 
 public class WebHandler {
 
-	private ResultAll result;
+	private Team[] teams;
 
 	public WebHandler(String urlTxt) {
 		try {
 			// traer JSON de internet a través de la URL en formato String
 			String jsonTxt = IOUtils.toString(new URL(urlTxt), Charset.forName("UTF-8"));
 			// serializar
-			result = new Gson().fromJson(jsonTxt, ResultAll.class);
+			teams = new Gson().fromJson(jsonTxt, Team[].class);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -28,7 +28,7 @@ public class WebHandler {
 		}
 	}
 
-	public ResultAll getResult() {
-		return result;
+	public Team[] getTeams() {
+		return teams;
 	}
 }
