@@ -14,6 +14,7 @@ import model.Team;
 public class WebHandler {
 
 	private Team[] teams;
+	private Player[] players;
 
 	public WebHandler(String urlTxt) {
 		try {
@@ -21,6 +22,7 @@ public class WebHandler {
 			String jsonTxt = IOUtils.toString(new URL(urlTxt), Charset.forName("UTF-8"));
 			// serializar
 			teams = new Gson().fromJson(jsonTxt, Team[].class);
+			players = new Gson().fromJson(jsonTxt, Player[].class);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -30,5 +32,9 @@ public class WebHandler {
 
 	public Team[] getTeams() {
 		return teams;
+	}
+
+	public Player[] getPlayers() {
+		return players;
 	}
 }
