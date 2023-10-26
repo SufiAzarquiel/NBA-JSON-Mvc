@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import handler.Player;
 import handler.WebHandler;
 import model.Team;
 
@@ -20,6 +21,7 @@ public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private Team[] teams;
+	private Player[] players;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -44,6 +46,18 @@ public class Controller extends HttpServlet {
 			teams = webHandler.getTeams();
 			request.setAttribute("teams", teams);
 			request.getRequestDispatcher("page.jsp").forward(request, response);
+			break;
+		}
+		case "details": {
+			String name = request.getParameter("name");
+			name.replace(" ", "%20");
+			System.out.println(name);
+			WebHandler webHandler = new WebHandler("http://www.ies-azarquiel.es/paco/apinba/players/team?name=" + name);
+
+			players = webHandler.getPlayers();
+			request.setAttribute("players", players);
+			request.setAttribute("teamname", name);
+			request.getRequestDispatcher("details.jsp").forward(request, response);
 			break;
 		}
 		default:

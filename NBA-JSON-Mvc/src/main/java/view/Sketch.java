@@ -11,7 +11,8 @@ public class Sketch {
 //			System.out.println(team);
 //		}
 
-		WebHandler webHandlerPlayers = new WebHandler("http://www.ies-azarquiel.es/paco/apinba/players");
+		WebHandler webHandlerPlayers = new WebHandler(
+				"http://www.ies-azarquiel.es/paco/apinba/players/team?name=Denver%20Nuggets");
 		Player[] players = webHandlerPlayers.getPlayers(); // Assuming you have a Player class
 		for (Player player : players) {
 			System.out.println(player);

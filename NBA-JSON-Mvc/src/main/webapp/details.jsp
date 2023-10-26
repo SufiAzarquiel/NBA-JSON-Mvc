@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>NBA Teams</title>
+    <title>Players</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,14 +20,14 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/nba.png" width="100px" alt=""></a>
+                <a class="navbar-brand" href="Controller"><img src="img/nba.png" width="100px" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
                     aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarID">
                     <div class="navbar-nav">
-                    	<p class="text-white h3 text-center">NBA TEAMS</p>
+                    	<p class="text-white h3 text-center"><c:out value="${teamname}"/></p>
                     </div>
                 </div>
             </div>
@@ -36,17 +36,19 @@
     <main>
         <div class="container">
             <div class="row">
-		        <c:forEach items="${teams}" var="team">
+		        <c:forEach items="${players}" var="player">
 		            <div class="col-lg-4 col-md-6 my-2">
 		                <div class="card">
-			                <a href="Controller?op=details&name=<c:out value="${team.name}"/>">
-			                    <img class="card-img-top" src="<c:out value="${team.url}"/>" alt="Title">
-			                </a>
-		                    <div class="card-body">
-		                        <h4 class="card-title"><c:out value="${team.name}"/></h4>
-		                        <p class="card-text"><c:out value="${team.conference}"/></p>
-		                        <p class="card-text"><strong>Record: </strong><c:out value="${team.record}"/></p>
-		                    </div>
+		                	<div class="row">
+		                		<div class="col">
+		                			<img class="card-img-top" src="<c:out value="${player.headShotUrl}"/>" alt="Title">
+		                		</div>
+		                		<div class="col">
+			                		<div class="card-body">
+				                        <h4 class="card-title"><c:out value="${player.firstName}"/></h4>
+				                    </div>
+		                		</div>
+		                	</div>
 		                </div>
 		            </div>
 	            </c:forEach>
