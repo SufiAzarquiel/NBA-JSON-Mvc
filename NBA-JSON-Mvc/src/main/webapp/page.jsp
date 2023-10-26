@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
 		        <c:forEach items="${teams}" var="team">
-		            <div class="col-md-4 col-sm-6 my-2">
+		            <div class="col-lg-4 col-md-6 my-2">
 		                <div class="card">
 		                    <img class="card-img-top" src="<c:out value="${team.url}"/>" alt="Title">
 		                    <div class="card-body">
