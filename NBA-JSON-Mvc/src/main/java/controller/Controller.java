@@ -49,14 +49,13 @@ public class Controller extends HttpServlet {
 			break;
 		}
 		case "details": {
-			String name = request.getParameter("name");
-			name.replace(" ", "%20");
-			System.out.println(name);
+			String original_name = request.getParameter("name");
+			String name = original_name.replace(" ", "%20");
 			WebHandler webHandler = new WebHandler("http://www.ies-azarquiel.es/paco/apinba/players/team?name=" + name);
 
 			players = webHandler.getPlayers();
 			request.setAttribute("players", players);
-			request.setAttribute("teamname", name);
+			request.setAttribute("teamname", original_name);
 			request.getRequestDispatcher("details.jsp").forward(request, response);
 			break;
 		}

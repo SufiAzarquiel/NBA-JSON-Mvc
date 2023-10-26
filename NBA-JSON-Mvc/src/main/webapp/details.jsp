@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="Controller"><img src="img/nba.png" width="100px" alt=""></a>
+                <a class="navbar-brand" href="Controller?op=inicio"><img src="img/nba.png" width="100px" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
                     aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
     </header>
     <main>
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
 		        <c:forEach items="${players}" var="player">
 		            <div class="col-lg-4 col-md-6 my-2">
 		                <div class="card">

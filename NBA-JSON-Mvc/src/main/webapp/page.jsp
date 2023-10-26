@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/nba.png" width="100px" alt=""></a>
+                <a class="navbar-brand" href="Controller?op=inicio"><img src="img/nba.png" width="100px" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
                     aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
